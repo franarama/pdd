@@ -5,12 +5,12 @@ from traceback import format_exc
 import requests
 import pprint
 import datetime
-from ns_log import NsLog
+from src import ns_log
 
 class active_rules:
     def __init__(self):
         self.pp = pprint.PrettyPrinter(indent=2)
-        self.logger = NsLog("log")
+        self.logger = ns_log.NsLog("log")
 
     def goog_safe_browsing(self, domain_features):
 

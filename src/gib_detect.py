@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import pickle
-import gib_detect_train
+from src import gib_detect_train
 
 model_data = pickle.load(open('gib_model.pki', 'rb'))
 

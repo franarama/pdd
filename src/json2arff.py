@@ -2,21 +2,26 @@
 import pprint
 
 from traceback import format_exc
-from ns_log import NsLog
+from src import ns_log
 
 pp = pprint.PrettyPrinter(indent=4)
 
+
 class json2arff:
     def __init__(self):
-        self.logger = NsLog("log")
+        self.logger = ns_log.NsLog("log")
 
     def convert_for_train(self, features, param):
 
         # arff convert header
         try:
             ArffStr = '''@relation weka-test\n\n'''
+            features_keys_url = []
+            try:
+                features_keys_url = list(features[0]['url_features'].keys())
+            except IndexError:
+                pass
 
-            features_keys_url = list(features[0]['url_features'].keys())
             features_keys_active = []
 
             if param == '-a':
@@ -30,11 +35,10 @@ class json2arff:
                     ArffStr = ArffStr + '@attribute ' + line + " numeric\n"
 
             ArffStr = ArffStr + '@attribute class {phish, legitimate}' + "\n\n@data\n"
+
         except:
-            self.logger.debug("Hata - Json_to_arff e gelen sample sayısı"+str(len(features))+
-                              "\nurl_feature_keys: "+str(features_keys_url)+
-                              "\nactive_features_key: "+str(features_keys_active))
             self.logger.error("Error Arff Header : {0}".format(format_exc()))
+
         # header son
 
 

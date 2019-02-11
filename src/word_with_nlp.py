@@ -1,22 +1,18 @@
-
-
-
 import re
-import sys
 import pickle
 import numpy as np
 import editdistance
-import gib_detect_train
+from src import gib_detect_train
 
 from traceback import format_exc
 
-from ns_log import NsLog
+from src import ns_log
 
 
 class nlp_class:
 
     def __init__(self):
-        self.logger = NsLog("log")
+        self.logger = ns_log.NsLog("log")
         self.path_data = "../data/"
         self.name_keywords = "keywords.txt"
         self.name_brand_file = "allbrand.txt"

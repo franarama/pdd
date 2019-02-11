@@ -10,7 +10,7 @@ from traceback import format_exc
 from word_with_nlp import nlp_class
 from word_splitter_file import WordSplitterClass
 
-from ns_log import NsLog
+from src import ns_log
 
 
 class url_rules:
@@ -18,7 +18,7 @@ class url_rules:
 
         print("initializing")
 
-        self.logger = NsLog("log")
+        self.logger = ns_log.NsLog("log")
         self.path_data = "../data/"
         self.name_brand_file = "allbrand.txt"
         self.path_alexa_files = "../data/alexa-tld/"

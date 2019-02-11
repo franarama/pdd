@@ -3,17 +3,17 @@ from tqdm import tqdm
 
 from traceback import format_exc
 
-from ns_log import NsLog
-from url_rules import url_rules
-from active_rules import active_rules
+from src import ns_log
+from src import url_rules
+from src import active_rules
 
 
 class rule_extraction:
 
     def __init__(self):
-        self.logger = NsLog("log")
-        self.url_rules_o = url_rules()
-        self.active_rules_o = active_rules()
+        self.logger = ns_log.NsLog("log")
+        self.url_rules_o = url_rules.url_rules()
+        self.active_rules_o = active_rules.active_rules()
 
     def extraction(self, parsed_domains):
 

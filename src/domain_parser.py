@@ -1,14 +1,14 @@
 
 import tldextract
 import re
-from ns_log import NsLog
+from src import ns_log
 from tqdm import tqdm
 
 class domain_parser(object):
 
     def __init__(self):
 
-        self.logger = NsLog("log")
+        self.logger = ns_log.NsLog("log")
 
     def parse(self, domain_list, class_info, count):
         self.logger.info("domain_parser.parse() is running")

@@ -3,20 +3,19 @@ import sys
 import json
 import datetime
 
-from ns_log import NsLog
-from json2arff import json2arff
+from src import ns_log
+from src import json2arff
 from traceback import format_exc
-from domain_parser import domain_parser
-from rule_extraction import rule_extraction
-
+from src import domain_parser
+from src import rule_extraction
 
 class Train:
     def __init__(self):
-        self.logger = NsLog("log")
+        self.logger = ns_log.NsLog("log")
 
-        self.json2arff_object = json2arff()
-        self.parser_object = domain_parser()
-        self.rule_calculation = rule_extraction()
+        self.json2arff_object = json2arff.json2arff()
+        self.parser_object = domain_parser.domain_parser()
+        self.rule_calculation = rule_extraction.rule_extraction()
 
         self.path_input = "../input/"
         self.path_arff = "../output/arff/"

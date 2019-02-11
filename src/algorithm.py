@@ -6,22 +6,22 @@ import numpy as np
 from io import StringIO
 from scipy.io import arff
 from traceback import format_exc
-from domain_parser import domain_parser
+from .domain_parser import domain_parser
 from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import confusion_matrix
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import cross_val_score
 
-from ns_log import NsLog
-from json2arff import json2arff
-from rule_extraction import rule_extraction
+from .ns_log import NsLog
+from .json2arff import json2arff
+from .rule_extraction import rule_extraction
 
 
 class machine_learning_algorithm():
 
     def __init__(self, algorithm, train_data_name="gsb.arff"):
 
-        self.logger = NsLog("log")
+        self.logger = ns_log.NsLog("log")
 
         self.path_output_arff = "../output/arff/"
         self.path_test_output = ""

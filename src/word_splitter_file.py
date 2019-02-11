@@ -2,13 +2,13 @@
 import re
 import pprint
 import enchant
-from ns_log import NsLog
+from src import ns_log
 
 
 class WordSplitterClass(object):
 
     def __init__(self):
-        self.logger = NsLog("log")
+        self.logger = ns_log.NsLog("log")
         self.path_data = "../data/"
         self.name_brand_file = "All_Brand.txt"
         self.dictionary_en = enchant.DictWithPWL("en_US", "{0}{1}".format(self.path_data, self.name_brand_file))
